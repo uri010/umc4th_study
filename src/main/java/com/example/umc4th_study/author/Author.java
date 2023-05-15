@@ -1,6 +1,10 @@
 package com.example.umc4th_study.author;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.umc4th_study.utils.BaseTimeEntity;
+import com.example.umc4th_study.work.Work;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,4 +25,7 @@ public class Author extends BaseTimeEntity {
 
 	@Column(nullable = false)
 	private String name;
+
+	@OneToMany(mappedBy = "author")
+	private List<Work> works = new ArrayList<>();
 }

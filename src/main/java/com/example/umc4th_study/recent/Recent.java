@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,9 +21,11 @@ public class Recent extends BaseTimeEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String date;
-
+	@ManyToOne
+	@JoinColumn(name = "member_id")
 	private Member member;
 
+	@ManyToOne
+	@JoinColumn(name = "work_id")
 	private Work work;
 }
